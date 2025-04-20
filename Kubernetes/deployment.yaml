@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kub-application
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kub-application
+  template:
+    metadata:
+      labels:
+        app: kub-application
+    spec:
+      containers:
+      - name: my-container
+        image: my-docker-image:latest
+        ports:
+        - containerPort: 80
+        env:
+        - name: WELCOME_MESSAGE
+          valueFrom:
+            configMapKeyRef:
+              name: my-config
+              key: message
+
