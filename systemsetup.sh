@@ -77,7 +77,6 @@ echo " Only ports 22, 80, and 443 are allowed."
 echo "Adding cron job"
 
 CRON_JOB="0 */6 * * * /bin/rm -rf /tmp/*
-(crontab -l 2>/dev/null; echo "$CRON_JOB") | crontab -
 
 echo "=== Cron job setup complete ==="
 
