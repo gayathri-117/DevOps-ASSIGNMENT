@@ -1,0 +1,8 @@
+v#Checking which process is using the most CPU#
+ps -eo pid,comm,%cpu --sort=-%cpu
+#Finding the top 5 memory-consuming processes#
+ps -eo pid,comm,%cpu --sort=-%cpu |  head -n 6
+#Detecting which service is listening on port 8080#
+ps -ef | grep 8080
+#Listing failed SSH login attempts from logs#
+grep "Failed password" /var/log/auth.log
